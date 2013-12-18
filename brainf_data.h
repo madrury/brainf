@@ -5,14 +5,17 @@
  *    A structure for storing the internal brainfuck state.  Consists of an
  * array of bytes (chars) to hold data, and a data pointer that at all times
  * points to a byte in the data array.
- * Note: the last byte of the array is allways the null byte, this allows us
- * to make sure we never exceed the bounds of the data array.
+ *   Note: the first and last bytes in the data array are set to sentinal 
+ * values, so that methods can perform out of bounds checks.  This sential 
+ * value must be of char type, so it is always possible that this value 
+ * could be a valid byte in the array.
  */
 
 #ifndef BF_DATA
 #define BF_DATA
 // Length of internal array of data registers
 #define DATA_LENGTH 1000
+// Sentinal value to mark boundries of the data array
 #define DATA_BOUNDARY_CHAR -128
 
 typedef struct {

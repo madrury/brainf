@@ -1,11 +1,12 @@
 #include "brainf_data.h"
 
 bf_data* setup_state() {
-    // Allocate a new bf_data struct, and fill the boundries with null bytes.
+    // Allocate a new bf_data struct 
     bf_data* new_data = calloc(1, sizeof(bf_data));
+    // Mark the boundries with sentinal bytes
     new_data->data_array[0] = DATA_BOUNDARY_CHAR;
     new_data->data_array[DATA_LENGTH - 1] = DATA_BOUNDARY_CHAR;
-    // Set the instruction pointer to the first non-null byte.
+    // Set the pointer to the first non-null byte.
     new_data->data_pointer = new_data->data_array + 1;
     return new_data;
 }
@@ -52,6 +53,6 @@ void set_byte(bf_data* bfd, char c) {
 }
 
 void raise_data_error() {
-    printf("Error: Data pointer out of bounds.");
+    printf("Error: Data pointer out of bounds.\n");
     exit(EXIT_FAILURE);
 }

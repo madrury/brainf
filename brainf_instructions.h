@@ -1,9 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/* bf_instructions:
+ *    A structure for holding the instructions in a brainfuck program.  
+ * Consists of an array of bytes represention the instructions in the
+ * program, along with an instruction pointer that at all times points to 
+ * the current instruction.
+ */
+
 #ifndef BF_INSTRUCTIONS
 #define BF_INSTRUCTIONS
-
 // Length of array used for storing the bf program
 #define INSTRUCTION_LENGTH 5000
 
@@ -21,4 +27,3 @@ void increment_instruction_pointer(bf_instructions* bfi);
 void decrement_instruction_pointer(bf_instructions* bfi);
 void move_forward_after_bracket(bf_instructions* bfi);
 void move_backward_after_bracket(bf_instructions* bfi);
-void raise_bracket_error();
